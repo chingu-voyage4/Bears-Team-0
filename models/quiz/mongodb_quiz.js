@@ -90,7 +90,7 @@ exports.readAll = function readAll() {
             return collection.find().toArray((err, docs) => {
                 if (err) return reject(err);
                 const returnQuizzes = docs.map(quiz => {
-                    return new Quiz(quiz.title, quiz.questions, quiz.description, quiz.favorites);
+                    return new Quiz(quiz.title, quiz.author, quiz.questions, quiz.description, quiz._id);
                 });
                 return resolve(returnQuizzes);
             });
